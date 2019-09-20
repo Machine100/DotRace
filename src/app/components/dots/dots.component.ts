@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DotControlService } from '../../dotcontrol/dotcontrol.service';
+import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
 
 @Component({
   selector: 'app-dots',
@@ -8,7 +8,7 @@ import { DotControlService } from '../../dotcontrol/dotcontrol.service';
 })
 export class DotsComponent implements OnInit {
 
-  constructor(private dotControl:DotControlService) { }
+  constructor(private dotControl:DotcontrolService) { }
 
   ngOnInit() {
    this.dotControl.dot11$.subscribe(incoming=>(
@@ -16,7 +16,7 @@ export class DotsComponent implements OnInit {
    ))
   }
 
-  handler(row:number, column:number) {
-    this.dotControl.claimDot(row, column)
+  handler(row:number, column:number, id:string) {
+    this.dotControl.claimDot(row, column, id)
   }
 }

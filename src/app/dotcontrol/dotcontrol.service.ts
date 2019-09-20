@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Dot } from '../models/Dot'
 import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DotControlService {
-
+export class DotcontrolService {
 
   private dot11 = new BehaviorSubject <Dot> ({row:1, column:1, owner:null})
-  dot11$ = this.dot11.asObservable()
+  dot11$ = this.dot11.asObservable()           // This shares out to the view components
 
-  constructor() { }
+  constructor(private db: AngularFirestore) { }
 
-  claimDot(row: number, column: number) {
-    console.log (row, column) 
+  claimDot(row: number, column: number, id: string) {
+    console.log (row, column)
+ //   this.db.collection('DotRace').doc(id).update( {[id]:id} )
   } 
-  
-  reportDots() {
-    console.log ('dots:',this.dot)
-  }
 
 }

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "syncbox-7cc4f": {
+      "hosting": {
+        "DotRace": [
+          "syncbox-7cc4f"
+        ]
+      }
+    }
+  }
+}

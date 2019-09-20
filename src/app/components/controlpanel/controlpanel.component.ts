@@ -14,8 +14,8 @@ export class ControlpanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  handler (playerID:string) {
-    console.log (playerID)
-    this.playerID=playerID
+  handler (buttonID:string) {
+    console.log (buttonID)
+    this.playerID=buttonID
   }
 }
