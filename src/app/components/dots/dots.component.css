@@ -1,0 +1,46 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+#dot11 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot11 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot12 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot13 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot21 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot22 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot23 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot31 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot32 {
+    border-color: grey;
+    background-color: lightgrey;
+}
+#dot33 {
+    border-color: grey;
+    background-color: lightgrey;
+}
