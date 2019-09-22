@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
 
+
 @Component({
   selector: 'app-dots',
   templateUrl: './dots.component.html',
@@ -11,12 +12,10 @@ export class DotsComponent implements OnInit {
   constructor(private dotControl:DotcontrolService) { }
 
   ngOnInit() {
-   this.dotControl.dot11$.subscribe(incoming=>(
-     console.log(incoming)
-   ))
+   console.log (this.dotControl.readDatabase())
   }
 
   handler(row:number, column:number, id:string) {
-    this.dotControl.claimDot(row, column, id)
+    this.dotControl.claimDot(row, column, id, 'blue')
   }
 }

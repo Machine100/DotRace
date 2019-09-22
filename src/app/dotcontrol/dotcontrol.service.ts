@@ -13,9 +13,17 @@ export class DotcontrolService {
 
   constructor(private db: AngularFirestore) { }
 
-  claimDot(row: number, column: number, id: string) {
-    console.log (row, column)
- //   this.db.collection('DotRace').doc(id).update( {[id]:id} )
+  readDatabase () {
+    console.log ('arrved at readDatabase')
+    return this.db.collection('DotRace').doc('11').valueChanges()   // returns observable
+  }
+
+  claimDot(row: number, column: number, id: string, owner: string) {
+    // console.log (row, column)
+    this.db.collection('DotRace').doc(id).update( {row:row} )
+    this.db.collection('DotRace').doc(id).update( {column:column} )
+    this.db.collection('DotRace').doc(id).update( {id:id} )
+    this.db.collection('DotRace').doc(id).update( {owner:owner} )
   } 
 
 }
