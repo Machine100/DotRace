@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
 
 @Component({
   selector: 'app-controlpanel',
@@ -7,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlpanelComponent implements OnInit {
 
-  playerID: string
+  
 
-  constructor() { }
+  constructor(private dotControl:DotcontrolService) { }
 
   ngOnInit() {
   }
 
   handler (buttonID:string) {
     console.log (buttonID)
-    this.playerID=buttonID
+    this.dotControl.playerColor=buttonID
+    console.log (this.dotControl.playerColor)
   }
 }

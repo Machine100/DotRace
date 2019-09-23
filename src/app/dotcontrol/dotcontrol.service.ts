@@ -8,6 +8,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class DotcontrolService {
 
+   playerColor:string
+ 
   private dot11 = new BehaviorSubject <Dot> ({row:1, column:1, owner:null})
   dot11$ = this.dot11.asObservable()           // This shares out to the view components
 
@@ -23,9 +25,10 @@ export class DotcontrolService {
     this.db.collection('DotRace').doc(id).update( {row:row} )
     this.db.collection('DotRace').doc(id).update( {column:column} )
     this.db.collection('DotRace').doc(id).update( {id:id} )
-    this.db.collection('DotRace').doc(id).update( {owner:owner} )
-    console.log (typeof(row))
-    this.dot11.next({row:row, column:column, owner:owner})
+    console.log ('playerID:', this.playerColor)
+    this.db.collection('DotRace').doc(id).update( {owner: this.playerColor} )
+    //console.log (typeof(row))
+    this.dot11.next({row:row, column:column, owner:this.playerColor})
   } 
 
 }
