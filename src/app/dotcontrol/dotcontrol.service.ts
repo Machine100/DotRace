@@ -19,11 +19,13 @@ export class DotcontrolService {
   }
 
   claimDot(row: number, column: number, id: string, owner: string) {
-    // console.log (row, column)
+    console.log ('arrived at claimDot', row, column)
     this.db.collection('DotRace').doc(id).update( {row:row} )
     this.db.collection('DotRace').doc(id).update( {column:column} )
     this.db.collection('DotRace').doc(id).update( {id:id} )
     this.db.collection('DotRace').doc(id).update( {owner:owner} )
+    console.log (typeof(row))
+    this.dot11.next({row:row, column:column, owner:owner})
   } 
 
 }
