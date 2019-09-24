@@ -15,9 +15,7 @@ export class ControlpanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  handler (buttonID:string) {
-    console.log (buttonID)
+  playerHandler (buttonID:string) {
     this.dotControl.playerColor=buttonID
-    console.log (this.dotControl.playerColor)
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
+import { Dot } from '../../models/Dot'
 
 
 @Component({
@@ -10,19 +11,29 @@ import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
 export class DotsComponent implements OnInit {
 
   owner: string
+  owners: {}
 
   constructor(private dotControl:DotcontrolService) { }
 
   ngOnInit() {
-    this.dotControl.dot11$.subscribe(data=>{       // Subscribe to a stream of changes to the state
-      console.log ('fromdotControl:', data)        // of the buttons as they come back from database changes.
-      this.owner = data.owner
-      console.log('csslocalvarset',this.owner)
+    var a = this.owners
+    this.dotControl.readDatabase().subscribe(result=>{                // Event listener to changes at remote database
+      console.log('from readDatabase().subscribe observable:', result)
+      this.owner = result.owner
+      
+      //let owners = {name:'joe'}
+      console.log (a)
+      let key=result.id
+      this.owners[key]= result.owner   // not pushing a key/value pair
+      console.log(owners[key])
+      
+      //console.log ('key:',key)
+      //this.owner[id] = result.owner
+      //console.log(this.owner[id])
     })
   }
 
-  handler(row:number, column:number, id:string) {
-    console.log ('arrived at handler', typeof(row))
+  dotClickHandler(row:number, column:number, id:string) {
     this.dotControl.claimDot(Number(row), Number(column), id, 'blue')  // HTML passes in a string but the rest of the code needs type number.
   }                                                                    // I'm not sure how to specify types at the earlier HTML layer. 
 }
