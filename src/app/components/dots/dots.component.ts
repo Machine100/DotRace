@@ -10,27 +10,24 @@ import { Dot } from '../../models/Dot'
 })
 export class DotsComponent implements OnInit {
 
-  owner: string
-  owners: {}
-
-  constructor(private dotControl:DotcontrolService) { }
+  owner11: string
+  owner12: string
+  owner13: string
+  
+  constructor(private dotControl:DotcontrolService) { 
+    //var owners = {test:'tesssst'}
+  }
 
   ngOnInit() {
-    var a = this.owners
-    this.dotControl.readDatabase().subscribe(result=>{                // Event listener to changes at remote database
-      console.log('from readDatabase().subscribe observable:', result)
-      this.owner = result.owner
-      
-      //let owners = {name:'joe'}
-      console.log (a)
-      let key=result.id
-      this.owners[key]= result.owner   // not pushing a key/value pair
-      console.log(owners[key])
-      
-      //console.log ('key:',key)
-      //this.owner[id] = result.owner
-      //console.log(this.owner[id])
-    })
+      this.dotControl.readDatabase().subscribe(result=>{   // Set an event listener to changes at remote database
+        this.doSomeThing(result)
+      })
+  }
+
+  doSomeThing (result:any) {                              // I am the remote database event listener
+    console.log(result.id)
+    this['owner'+result.id]=result.owner
+    console.log(this['owner'+result.id])
   }
 
   dotClickHandler(row:number, column:number, id:string) {

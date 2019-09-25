@@ -13,14 +13,14 @@ export class DotcontrolService {
 //  private dot11 = new BehaviorSubject <Dot> ({row:1, column:1, owner:null})     =-=-part of the MVP hack=-=-
 //  dot11$ = this.dot11.asObservable()           // This shares out to the view components
 
-  private changeStream = new BehaviorSubject <any> (this.db.collection('DotRace').doc('11').valueChanges())
-  changeStream$ = this.changeStream.asObservable()
+  //private changeStream = new BehaviorSubject <any> (this.db.collection('DotRace').doc('11').valueChanges())
+  //changeStream$ = this.changeStream.asObservable()
  
   constructor(private db: AngularFirestore) { }  
 
-  readDatabase (){                                                  // No behaviorSubject middleman. 
-    console.log('arrived at readdatabase')
-    return this.db.collection('DotRace').doc('11').valueChanges()   // Returns observable
+  readDatabase (){                                         // No behaviorSubject middleman. 
+    console.log('arrived at readdatabase')                 // This shares from firestore back to dots.component to update color
+    return this.db.collection('DotRace').doc().valueChanges()   // Is only called once - from OnInit at dots.component
   }
 
   claimDot(row: number, column: number, id: string, owner: string) {
