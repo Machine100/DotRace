@@ -10,12 +10,6 @@ export class DotcontrolService {
 
    playerColor:string
  
-//  private dot11 = new BehaviorSubject <Dot> ({row:1, column:1, owner:null})     =-=-part of the MVP hack=-=-
-//  dot11$ = this.dot11.asObservable()           // This shares out to the view components
-
-  //private changeStream = new BehaviorSubject <any> (this.db.collection('DotRace').doc('11').valueChanges())
-  //changeStream$ = this.changeStream.asObservable()
- 
   constructor(private db: AngularFirestore) { }  
 
   readDatabase (){                                         // No behaviorSubject middleman. 
@@ -30,8 +24,6 @@ export class DotcontrolService {
     this.db.collection('DotRace').doc(id).update( {id:id} )
     //console.log ('playerID:', this.playerColor)
     this.db.collection('DotRace').doc(id).update( {owner: this.playerColor} )
-    //console.log (typeof(row))
-//    this.dot11.next({row:row, column:column, owner:this.playerColor})      =-=-MVP hack=-=-
   } 
 
 }
