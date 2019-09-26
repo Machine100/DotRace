@@ -12,19 +12,27 @@ export class ControlpanelComponent implements OnInit {
   blueScore: number
   redScore: number
   
-  constructor(private dotControl:DotcontrolService) { }
+  constructor(private dotControl:DotcontrolService) { this.blueScore = 0}
 
   ngOnInit() {
-    this.dotControl.redScore().subscribe(result=> {this.increaseRedScore(result)} )
-    this.dotControl.blueScore().subscribe(result=>{this.increaseBlueScore(result)} )
+    this.dotControl.redScore().subscribe(result=> {this.scoreUpdateRed(result)} )
+    this.dotControl.blueScore().subscribe(result=> {this.scoreUpdateBlue(result)} )
   }
 
+  scoreUpdateBlue (result) {
+    console.log ('at scoreUpdate',result)
+    this.blueScore = result.score
+  }
+
+  scoreUpdateRed (result) {
+    console.log ('at scoreUpdate',result)
+    this.redScore = result.score
+  }
+  
   playerHandler (buttonID:string) {
     this.dotControl.playerColor=buttonID
   }
   
   resetBoard () { this.dotControl.resetBoard() }
 
-  increaseRedScore (result) {console.log ('atincreaseRedScore', result)}
-  increaseBlueScore(result) {console.log ('atincreaseBlueScore', result)}
 }

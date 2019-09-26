@@ -7,6 +7,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class DotcontrolService {
 
   playerColor: string
+  localStateBlueScore: number
+  localStateRedScore: number
  
   constructor(private db: AngularFirestore) { }   // Incoming
     // These pass changes from firestore back to the view components
@@ -33,17 +35,26 @@ export class DotcontrolService {
 
   claimDot( id: string) {
     this.db.collection('DotRace').doc(id).update( {owner: this.playerColor} )
-    this.changeScore ()
+
+    if (this.playerColor === 'blue') {
+      this.localStateBlueScore = this.localStateBlueScore + 1
+      this.db.collection('DotRace').doc('blueScore').update( {score: this.localStateBlueScore} )
+    }
+    if (this.playerColor === 'red') {
+      this.localStateRedScore = this.localStateRedScore + 1
+      this.db.collection('DotRace').doc('redScore').update( {score: this.localStateRedScore} )
+    }   
   } 
 
-  changeScore () {
-    
-  }
+
 
   resetBoard() {
     this.db.collection('DotRace').doc('blueScore').update( {score: 0} )
     this.db.collection('DotRace').doc('redScore').update( {score: 0} )
     this.playerColor = 'lightyellow'
+    this.localStateBlueScore = 0
+    this.localStateRedScore = 0
+    
     let ids: string[] = ['11','12','13','21','22','23','31','32','33','41','42','43','51','52','53','61','62','63']
     ids.forEach(id=>(
       this.db.collection('DotRace').doc(id).update( {owner: 'lightyellow'} )
