@@ -12,7 +12,7 @@ export class ControlpanelComponent implements OnInit {
   blueScore: number
   redScore: number
   
-  constructor(private dotControl:DotcontrolService) { this.blueScore = 0}
+  constructor(private dotControl:DotcontrolService) { }
 
   ngOnInit() {
     this.dotControl.redScore().subscribe(result=> {this.scoreUpdateRed(result)} )
