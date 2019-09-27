@@ -9,8 +9,9 @@ import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
 })
 export class ControlpanelComponent implements OnInit {
 
-  blueScore: number
-  redScore: number
+  blueScore: number          // State is only kept in this application so that Angular
+  redScore: number           // can dynamically update the DOM with it.
+  playerColor: string        // True?
   
   constructor(private dotControl:DotcontrolService) { }
 
@@ -31,8 +32,12 @@ export class ControlpanelComponent implements OnInit {
   
   playerHandler (buttonID:string) {
     this.dotControl.playerColor=buttonID
+    this.playerColor = buttonID
   }
   
-  resetBoard () { this.dotControl.resetBoard() }
+  resetBoard () { 
+    this.dotControl.resetBoard()
+    this.playerColor = 'lightyellow'
+  }
 
 }
