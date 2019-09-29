@@ -23,9 +23,9 @@ export class DotsComponent implements OnInit {
   owner111: string; owner112: string; owner113: string
   owner121: string; owner122: string; owner123: string
   
-  constructor(private dotControl:DotcontrolService) { }
+  constructor (private dotControl:DotcontrolService) { }
 
-  ngOnInit() {
+  ngOnInit () {
       this.dotControl.readDatabase11().subscribe(result=>{ this.markDotOwned(result) })
       this.dotControl.readDatabase12().subscribe(result=>{ this.markDotOwned(result) })
       this.dotControl.readDatabase13().subscribe(result=>{ this.markDotOwned(result) })
@@ -71,7 +71,7 @@ export class DotsComponent implements OnInit {
     this['owner'+result.id]=result.owner
   }
 
-  dotClickHandler(id:string) {                            // Dot claims going out
+  dotClickHandler (id:string) {                            // Dot claims going out
     console.log('at dotClickHandler',this['owner'+id])
     if (this['owner'+id] == 'lightyellow'){               // Only allow players to claim unclaimed dots
       console.log('if condition passed')
