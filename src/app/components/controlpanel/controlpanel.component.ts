@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
-//import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-controlpanel',
