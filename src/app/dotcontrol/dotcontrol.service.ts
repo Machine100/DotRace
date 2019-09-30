@@ -4,13 +4,13 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
-export class DotcontrolService {
 
+export class DotcontrolService {
   playerColor: string
   localStateBlueScore: number
   localStateRedScore: number
  
-  constructor(private db: AngularFirestore) { }   // Incoming
+  constructor(private db: AngularFirestore) { }                                        // Incoming 
     // These pass changes from firestore back to the view components
     readDatabase11 (){ return this.db.collection('DotRace').doc('11').valueChanges() } 
     readDatabase12 (){ return this.db.collection('DotRace').doc('12').valueChanges() } 
@@ -55,7 +55,7 @@ export class DotcontrolService {
     this.db.collection('DotRace').doc(id).update( {owner: this.playerColor} )
     console.log ('in claimDot:',id)
 
-    if (this.playerColor === 'blue') {                               // Scoretracking state model is broken.
+    if (this.playerColor === 'blue') {            // Scoretracking state model is broken.
       this.localStateBlueScore = this.localStateBlueScore + 1
       this.db.collection('DotRace').doc('blueScore').update( {score: this.localStateBlueScore} )
     }
@@ -65,19 +65,16 @@ export class DotcontrolService {
     }   
   } 
 
-
-
   resetBoard () {
     this.db.collection('DotRace').doc('blueScore').update( {score: 0} )
     this.db.collection('DotRace').doc('redScore').update( {score: 0} )
-    this.playerColor = 'lightyellow'
     this.localStateBlueScore = 0
     this.localStateRedScore = 0
     
     let ids: string[] = ['11','12','13','21','22','23','31','32','33','41','42','43','51','52','53','61','62','63','71','72','73','81','82','83','91','92','93','101','102','103','111','112','113','121','122','123']
     ids.forEach(id=>{
-      this.db.collection('DotRace').doc(id).update( {owner: 'lightyellow'} )        //initalize database
-      this.db.collection('DotRace').doc(id).update( {id: id} )                      //initalize database
+      this.db.collection('DotRace').doc(id).update( {owner: 'lightyellow'} )  // initalize database
+      // this.db.collection('DotRace').doc(id).update( {id: id} )             // Enable once only if developer adds more dots to the board. 
     })
   }
 }

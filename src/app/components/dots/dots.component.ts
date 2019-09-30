@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
-import { Dot } from '../../models/Dot'
-
 
 @Component({
   selector: 'app-dots',
@@ -65,7 +63,7 @@ export class DotsComponent implements OnInit {
       // Subscirbe to observables from individual remote documents at firebase.
       this.dotControl.resetBoard()
   }
-  
+
   markDotOwned (result:any) {                             // Dot claims coming back in
     console.log(result)                                   // I react to events from all of the observables
     this['owner'+result.id]=result.owner
@@ -77,5 +75,5 @@ export class DotsComponent implements OnInit {
       console.log('if condition passed')
       this.dotControl.claimDot(id)  
     }
-    }                                                                     
+  }                                                                     
 }
