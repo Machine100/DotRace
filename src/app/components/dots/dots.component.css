@@ -6,8 +6,10 @@
 }
 
 .button{
-    background-color: black;
-    border-color: darkgreen;
-    border-width: 2px;
+    background-color: #1F262A;
+    border-style: solid;
+    border-color: #2A3439;
+    border-width:2px;
+    border-radius: 2px;
     margin: 1px; 
 }

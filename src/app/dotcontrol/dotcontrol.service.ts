@@ -53,13 +53,13 @@ export class DotcontrolService {
 
   claimDot ( id: string) {                        // outgoing claims to remote database
     this.db.collection('DotRace').doc(id).update( {owner: this.playerColor} )
-    console.log ('in claimDot:',id)
+    //console.log ('in claimDot:',id)
 
-    if (this.playerColor === 'blue') {            // Scoretracking state model is broken.
+    if (this.playerColor === '#00669B') {         //(blue)     // Scoretracking state model is broken.
       this.localStateBlueScore = this.localStateBlueScore + 1
       this.db.collection('DotRace').doc('blueScore').update( {score: this.localStateBlueScore} )
     }
-    if (this.playerColor === 'red') {
+    if (this.playerColor === '#F46A90') {         //(red)
       this.localStateRedScore = this.localStateRedScore + 1
       this.db.collection('DotRace').doc('redScore').update( {score: this.localStateRedScore} )
     }   

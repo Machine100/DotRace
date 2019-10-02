@@ -36,7 +36,6 @@ export class ControlpanelComponent implements OnInit {
   
   resetBoard () { 
     this.dotControl.resetBoard()
-    this.playerColor = 'lightyellow'
   }
 
 }

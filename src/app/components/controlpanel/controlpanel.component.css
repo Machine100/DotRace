@@ -1,7 +1,12 @@
 .button{
     color: lightyellow;
-    background-color: black;
-    border-color: darkgreen;
+    background-color: #252120;
+    border-color: #B48375;
     border-width: 2px;
+    border-radius: 2px;
     margin: 1px; 
+}
+
+.textcolor{
+    color: lightYellow;
 }

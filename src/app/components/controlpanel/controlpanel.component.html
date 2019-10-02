@@ -1,8 +1,11 @@
 
-<button class=button [style.color]='playerColor' (click)="playerHandler('blue')"> Play as Blue </button>
-<button class=button [style.color]='playerColor' (click)="playerHandler('red')"> Play as Red </button>
+<button class=button [style.color]='playerColor' (click)="playerHandler('#00669B')"> Play as Blue </button>
+<button class=button [style.color]='playerColor' (click)="playerHandler('#F46A90')"> Play as Red </button>
 <br><br>
-ScoreBlue: {{blueScore}} 
-ScoreRed: {{redScore}}
-<br><br>
-<button class=button (click)="resetBoard()"> Reset Board </button>
+
+<div class=textcolor>
+    ScoreBlue: {{blueScore}} 
+    ScoreRed: {{redScore}}
+    <br><br>
+    <button class=button (click)="resetBoard()"> Reset Board </button>
+</div>
