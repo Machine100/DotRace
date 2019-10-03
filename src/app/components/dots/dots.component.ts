@@ -28,19 +28,18 @@ export class DotsComponent implements OnInit {
       this.dotControl.resetBoard()
   }
 
-  markDotOwned (result:any) {                         // Dot claims coming back in
-    console.log(result)                               // I react to events from all of the observables
-    this['owner'+result.id]=result.owner
+  markDotOwned (result:any) {                      // Dot claims coming back in
+    this['owner'+result.id]=result.owner           // I react to events from all of the observables
   }
 
-  dotClickHandler (id:string) {                       // Dot claims going out
-    console.log('at dotClickHandler',this['owner'+id])
-    if (this['owner'+id] == 'lightyellow'){               // Only allow players to claim unclaimed dots
+  dotClickHandler (id:string) {                    // Dot claims going out
+      if (this['owner'+id] == 'lightyellow'){      // Only allow players to claim unclaimed dots
       this.dotControl.claimDot(id)                    
     }
   }                                                                     
 
-  initSubscriptions () {  // Subscribe to observables from individual remote documents at firebase.
+  initSubscriptions () {
+    // Subscribe to observables from individual remote documents at firebase.
     this.dotControl.readDatabase11().subscribe(result=>{ this.markDotOwned(result) })
     this.dotControl.readDatabase12().subscribe(result=>{ this.markDotOwned(result) })
     this.dotControl.readDatabase13().subscribe(result=>{ this.markDotOwned(result) })
@@ -74,9 +73,8 @@ export class DotsComponent implements OnInit {
     this.dotControl.readDatabase111().subscribe(result=>{ this.markDotOwned(result) })
     this.dotControl.readDatabase112().subscribe(result=>{ this.markDotOwned(result) })
     this.dotControl.readDatabase113().subscribe(result=>{ this.markDotOwned(result) })    
- //   this.dotControl.readDatabase121().subscribe(result=>{ this.markDotOwned(result) })
- //   this.dotControl.readDatabase122().subscribe(result=>{ this.markDotOwned(result) })
- //   this.dotControl.readDatabase123().subscribe(result=>{ this.markDotOwned(result) }) 
+    this.dotControl.readDatabase121().subscribe(result=>{ this.markDotOwned(result) })
+    this.dotControl.readDatabase122().subscribe(result=>{ this.markDotOwned(result) })
+    this.dotControl.readDatabase123().subscribe(result=>{ this.markDotOwned(result) }) 
   }
-
 }

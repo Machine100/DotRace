@@ -66,15 +66,16 @@ export class DotcontrolService {
   } 
 
   resetBoard () {
-    this.db.collection('DotRace').doc('blueScore').update( {score: 0} )
-    this.db.collection('DotRace').doc('redScore').update( {score: 0} )
+    // reset local and remote state for player scores
     this.localStateBlueScore = 0
     this.localStateRedScore = 0
+    this.db.collection('DotRace').doc('blueScore').update( {score: 0} )
+    this.db.collection('DotRace').doc('redScore').update( {score: 0} )
     
+    // reset remote state for all dots to unowned
     let ids: string[] = ['11','12','13','21','22','23','31','32','33','41','42','43','51','52','53','61','62','63','71','72','73','81','82','83','91','92','93','101','102','103','111','112','113','121','122','123']
     ids.forEach(id=>{
-      this.db.collection('DotRace').doc(id).update( {owner: 'lightyellow'} )  // initalize database
-      // this.db.collection('DotRace').doc(id).update( {id: id} )             // Enable once only if developer adds more dots to the board. 
+      this.db.collection('DotRace').doc(id).update( {owner: 'lightyellow'} )
     })
   }
 }
