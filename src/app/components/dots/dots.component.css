@@ -3,14 +3,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    min-width: 100px;
     max-width: 300px;
+    min-height: 300px;
+    max-height: 1200px;
 }
 
-.button{
+.grid-item{
     background-color: #1F262A;
     border-style: solid;
-    border-color: #2A3439;
-    border-width:2px;
+    border-color: green;
+    border-width:1px;
     border-radius: 2px;
     margin: 1px; 
 }
