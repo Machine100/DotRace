@@ -7,3 +7,5 @@ This project is live at endpoint http://dotrace.s3-website-us-east-1.amazonaws.c
 This program is a reactive webapp where changes by one player are shown in real time to the other player.
 
 Uses Angular, Typescript, Firebase, Observables and Streams.
+
+![](screenshot/screenshotDotRace.png)
