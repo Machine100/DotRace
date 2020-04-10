@@ -8,4 +8,4 @@ This program is a reactive webapp where changes by one player are shown in real 
 
 Uses Angular, Typescript, Firebase, Observables and Streams.
 
-![](screenshot/screenshotDotRace.PNG)
+![](screenshot/ScreenshotDotRace.PNG)
