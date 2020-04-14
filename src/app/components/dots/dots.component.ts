@@ -7,7 +7,7 @@ import { DotcontrolService } from '../../dotcontrol/dotcontrol.service';
   styleUrls: ['./dots.component.css']
 })
 export class DotsComponent implements OnInit {
-  // These css stylings are dynamically pulled into the template via Angular's 2-way-binding  
+  // These css stylings are dynamically pulled into the template via Angular's 2-way-binding
   owner11: string; owner12: string; owner13: string
   owner21: string; owner22: string; owner23: string
   owner31: string; owner32: string; owner33: string
@@ -20,25 +20,25 @@ export class DotsComponent implements OnInit {
   owner101: string; owner102: string; owner103: string
   owner111: string; owner112: string; owner113: string
   owner121: string; owner122: string; owner123: string
-  
-  constructor(private dotControl:DotcontrolService) { }
+
+  constructor(private dotControl: DotcontrolService) { }
 
   ngOnInit() {
-      this.initSubscriptions()   
+      this.initSubscriptions()
       this.dotControl.resetBoard()
   }
 
-  markDotOwned(result:any) {                      // Dot claims coming back in
-   this['owner'+result.id]=result.owner           // I react to events from all of the observables
+  markDotOwned(result: any) {                        // Dot claims coming back in
+   this['owner' + result.id] = result.owner          // I react to events from all of the observables
   }
 
-  dotClickHandler(id:string) {                    // Dot claims going out
-      if (this['owner'+id] == 'lightyellow') {    // Only allow players to claim unclaimed dots
-      this.dotControl.claimDot(id)                    
+  dotClickHandler(id: string) {                      // Dot claims going out
+      if (this['owner' + id] === 'lightyellow') {    // Only allow players to claim unclaimed dots
+      this.dotControl.claimDot(id)
     }
-  }                                                                     
+  }
 
-  initSubscriptions () {
+  initSubscriptions() {
     // Subscribe to observables from individual remote documents at firebase.
     this.dotControl.readDatabase11().subscribe(result => { this.markDotOwned(result) })
     this.dotControl.readDatabase12().subscribe(result => { this.markDotOwned(result) })
@@ -72,9 +72,9 @@ export class DotsComponent implements OnInit {
     this.dotControl.readDatabase103().subscribe(result => { this.markDotOwned(result) })
     this.dotControl.readDatabase111().subscribe(result => { this.markDotOwned(result) })
     this.dotControl.readDatabase112().subscribe(result => { this.markDotOwned(result) })
-    this.dotControl.readDatabase113().subscribe(result => { this.markDotOwned(result) })    
+    this.dotControl.readDatabase113().subscribe(result => { this.markDotOwned(result) })
     this.dotControl.readDatabase121().subscribe(result => { this.markDotOwned(result) })
     this.dotControl.readDatabase122().subscribe(result => { this.markDotOwned(result) })
-    this.dotControl.readDatabase123().subscribe(result => { this.markDotOwned(result) }) 
+    this.dotControl.readDatabase123().subscribe(result => { this.markDotOwned(result) })
   }
 }

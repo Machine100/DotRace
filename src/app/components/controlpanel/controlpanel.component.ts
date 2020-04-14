@@ -11,8 +11,8 @@ export class ControlpanelComponent implements OnInit {
   blueScore: number          // State is only kept in this application so that Angular
   redScore: number           // can dynamically update the DOM with it.
   playerColor: string        // True?
-  
-  constructor(private dotControl:DotcontrolService) { }
+
+  constructor(private dotControl: DotcontrolService) { }
 
   ngOnInit() {
     this.dotControl.redScore().subscribe(result => { this.scoreUpdateRed(result) } )
@@ -20,21 +20,21 @@ export class ControlpanelComponent implements OnInit {
   }
 
   scoreUpdateBlue(result) {
-    console.log ('at scoreUpdate',result)
+    console.log ('at scoreUpdate', result)
     this.blueScore = result.score
   }
 
   scoreUpdateRed(result) {
-    console.log ('at scoreUpdate',result)
+    console.log ('at scoreUpdate', result)
     this.redScore = result.score
   }
-  
-  playerHandler(buttonID:string) {
+
+  playerHandler(buttonID: string) {
     this.dotControl.playerColor = buttonID
     this.playerColor = buttonID
   }
-  
-  resetBoard() { 
+
+  resetBoard() {
     this.dotControl.resetBoard()
   }
 
