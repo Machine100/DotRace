@@ -55,11 +55,11 @@ export class DotcontrolService {
     this.db.collection('DotRace').doc(id).update({ owner: this.playerColor })
     // console.log ('in claimDot:',id)
 
-    if (this.playerColor === '#00669B') {       // (blue)     // Scoretracking state model is broken.
+    if (this.playerColor === '#1c3ffd') {       // (blue)     // Scoretracking state model is broken.
       this.localStateBlueScore = this.localStateBlueScore + 1
       this.db.collection('DotRace').doc('blueScore').update({ score: this.localStateBlueScore })
     }
-    if (this.playerColor === '#F46A90') {       // (red)
+    if (this.playerColor === '#fd1c3f') {       // (red)
       this.localStateRedScore = this.localStateRedScore + 1
       this.db.collection('DotRace').doc('redScore').update({ score: this.localStateRedScore })
     }
@@ -75,7 +75,7 @@ export class DotcontrolService {
     const ids: string[] = ['11','12','13','21','22','23','31','32','33','41','42','43','51','52','53','61','62',
     '63','71','72','73','81','82','83','91','92','93','101','102','103','111','112','113','121','122','123']
     ids.forEach(id => {
-      this.db.collection('DotRace').doc(id).update({ owner: 'lightyellow' })
+      this.db.collection('DotRace').doc(id).update({ owner: '#383838' })
     })
   }
 }

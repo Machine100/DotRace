@@ -33,7 +33,7 @@ export class DotsComponent implements OnInit {
   }
 
   dotClickHandler(id: string) {                      // Dot claims going out
-      if (this['owner' + id] === 'lightyellow') {    // Only allow players to claim unclaimed dots
+      if (this['owner' + id] === '#383838') {    // Only allow players to claim unclaimed dots
       this.dotControl.claimDot(id)
     }
   }

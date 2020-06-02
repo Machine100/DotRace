@@ -1,12 +1,12 @@
 .button{
-    color: lightyellow;
+    color: #FFE81F;
     background-color: #252120;
-    border-color: #B48375;
-    border-width: 2px;
+    border-color: #FFE81F;
+    border-width: 1px;
     border-radius: 2px;
     margin: 1px; 
 }
 
 .textcolor{
-    color: lightYellow;
+    color: #FFE81F;
 }
