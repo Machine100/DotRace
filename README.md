@@ -6,6 +6,6 @@ This project is live at endpoint http://dotrace.s3-website-us-east-1.amazonaws.c
 
 Changes made on one phone are pushed out live to the other phone. Works on desktop and mobile.
 
-Uses Angular, Typescript, Firebase, Observables and Streams.
+Uses Angular, Typescript, pub-sub Observable streams, and Firebase.
 
 ![](screenshot/screenshot.png)
