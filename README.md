@@ -1,6 +1,6 @@
 # DotRace
 
-This project is live at endpoint http://dotrace.s3-website-us-east-1.amazonaws.com/
+This project is live at endpoint https://machine100.github.io/_DotRaceDeploy/
 
 2 players open the web address on their phones. The two players pick their colors then race to claim all spaces.
 
