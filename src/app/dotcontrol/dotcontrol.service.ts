@@ -9,7 +9,7 @@ export class DotcontrolService {
   playerColor: string
   localStateBlueScore: number
   localStateRedScore: number
- 
+
   constructor(private db: AngularFirestore) { }                                        // Incoming
     // These pass changes from firestore back to the view components
     readDatabase11() { return this.db.collection('DotRace').doc('11').valueChanges() }
