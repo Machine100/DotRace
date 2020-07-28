@@ -9,6 +9,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AppComponent } from './app.component';
 import { DotsComponent } from './components/dots/dots.component';
 import { ControlpanelComponent } from './components/controlpanel/controlpanel.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ControlpanelComponent } from './components/controlpanel/controlpanel.co
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp( environment.firebaseConfig ),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
